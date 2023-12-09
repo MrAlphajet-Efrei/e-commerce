@@ -13,7 +13,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
 // once completed, we pass the `client_secret` of the `PaymentIntent` back to the client which can process the payment
 export const createPaymentIntent: PayloadHandler = async (req, res): Promise<void> => {
   const { user, payload } = req
-
   if (!user) {
     res.status(401).send('Unauthorized')
     return
